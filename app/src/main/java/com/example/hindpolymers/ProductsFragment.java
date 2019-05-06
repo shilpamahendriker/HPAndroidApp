@@ -66,21 +66,17 @@ public class ProductsFragment extends Fragment {
         productDataModel = new ProductDataModel(getString(R.string.tamper_evident), getString(R.string.tamper_evident_desc),
                 R.drawable.hp_tamper_evident_shrink_sleeves);
         productList.add(productDataModel);
-
-
-
         ProductGridViewAdapter adapter = new ProductGridViewAdapter(getContext(), productList);
         recyclerView.setAdapter(adapter);
 
-
-
+        getActivity().setTitle(getString(R.string.home));
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
+        getActivity().setTitle(getString(R.string.products));
         if(getView() == null){
             return;
         }

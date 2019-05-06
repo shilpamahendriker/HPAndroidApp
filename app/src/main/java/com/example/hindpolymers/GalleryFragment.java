@@ -128,7 +128,12 @@ public class GalleryFragment extends Fragment {
     }
 
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(getString(R.string.gallery));
+    }
 
 
 

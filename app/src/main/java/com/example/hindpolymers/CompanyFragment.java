@@ -41,9 +41,10 @@ public class CompanyFragment extends Fragment {
 
     }
 
-    /*@Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        // Setup any handles to view objects here
-        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
-    }*/
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(getString(R.string.company));
+    }
 }

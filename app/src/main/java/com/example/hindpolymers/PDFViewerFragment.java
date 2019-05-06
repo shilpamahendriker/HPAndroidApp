@@ -1,34 +1,13 @@
 package com.example.hindpolymers;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.pdf.PdfRenderer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.github.barteksc.pdfviewer.PDFView;
-import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
-import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 
 public class PDFViewerFragment extends Fragment {
@@ -52,10 +31,7 @@ public class PDFViewerFragment extends Fragment {
 
 
         PDFView pdfView = view.findViewById(R.id.pdfView);
-
-
             Uri uri = Uri.parse( "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf" );
-
 
 
         //pdfView.fromAsset(FILENAME)
@@ -65,15 +41,15 @@ public class PDFViewerFragment extends Fragment {
                 .enableAnnotationRendering(true)
                 .scrollHandle(new DefaultScrollHandle(getContext()))
                 .load();
-
-
-
-
         return view;
 
 
     }
-
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(getString(R.string.product_catalogue));
+    }
 
 
 

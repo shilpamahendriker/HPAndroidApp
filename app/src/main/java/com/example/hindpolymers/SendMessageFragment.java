@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +31,9 @@ public class SendMessageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_send_message, container, false);
+
+        
+
 
         final EditText nameEditText = view.findViewById(R.id.et_name);
         final EditText phonenoEditText = view.findViewById(R.id.et_phoneno);
@@ -118,7 +122,7 @@ public class SendMessageFragment extends Fragment {
                     String textMsg = "Name: " + nameEditText.getText() ;
                     textMsg += "\n" + "Phone No: " + phonenoEditText.getText();
                     textMsg += "\n" + "Message: " + msgEditText.getText();
-                    String toNumber = "918792808582,919866140095"; // Replace with mobile phone number without +Sign or leading zeros, but with country code
+                    String toNumber = "918792808582"; // Replace with mobile phone number without +Sign or leading zeros, but with country code
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + toNumber + "&text=" + textMsg));
                     startActivity(intent);
@@ -137,6 +141,13 @@ public class SendMessageFragment extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle("Send Message");
     }
 
 }

@@ -34,5 +34,11 @@ public class AboutUsFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(getString(R.string.about_us));
+    }
 
 }
