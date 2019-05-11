@@ -26,6 +26,11 @@ public class UserCornerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_user_corner, container, false);
+
+
+
+
+
         TextView textViewProdCat = view.findViewById(R.id.tv_productCat);
         textViewProdCat.setText(getString(R.string.product_catalogue));
 
@@ -33,7 +38,12 @@ public class UserCornerFragment extends Fragment {
         cardview_prod_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Bundle bundle = new Bundle();
+                bundle.putString("catKey", "ProdCat");
+
                 Fragment fragment = new PDFViewerFragment();
+                fragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_placeholder, fragment,getString(R.string.product_catalogue)).addToBackStack(null).commit();
             }
         });
@@ -45,7 +55,11 @@ public class UserCornerFragment extends Fragment {
         cardview_busbar_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("catKey", "ProdBus");
+
                 Fragment fragment = new PDFViewerFragment();
+                fragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_placeholder, fragment,getString(R.string.product_catalogue)).addToBackStack(null).commit();
             }
         });
